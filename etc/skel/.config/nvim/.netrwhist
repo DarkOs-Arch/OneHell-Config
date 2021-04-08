@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =5
-let g:netrw_dirhist_5='/home/ybenel/dotfiles/.git'
-let g:netrw_dirhist_4='/home/ybenel/.projectM'
-let g:netrw_dirhist_3='/home/ybenel/.cache/paru/clone/stremio-beta/stremio'
-let g:netrw_dirhist_2='/home/ybenel/DarkOs/Full/Operating_System/Hard_Machine/installation-scripts'
-let g:netrw_dirhist_1='/home/ybenel/.xmonad'

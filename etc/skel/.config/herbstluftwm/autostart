@@ -2,8 +2,6 @@
 
 
 # Herbstluftwm Config
-# This File Contains My Personal KeyBindings And Some stuff
-
 
 hc() {
     herbstclient "$@"
@@ -33,7 +31,7 @@ hc keyunbind --all
 Mod=Mod4                            # Use the super key as the main modifier
 myTerm=xterm                   # Set my preferred terminal
 myEditor="emacsclient -c -a emacs"  # Set my preferred editor
-myBrowser="/usr/bin/firefox"
+myBrowser="firefox"
 myMusic="/usr/bin/mocp"
 myMMusic="ncmpcpp"
 MMControl="mpc"
@@ -43,7 +41,7 @@ hc keybind $Mod-Shift-c close
 hc keybind $Mod-Return spawn $myTerm
 hc keybind $Mod-e spawn $myEditor
 # Dmenu launcher
-hc keybind $Mod-Shift-Return spawn dmenu_run -fn 'scientifica:size=11' -nb '#212D32' -nf '#bbc5ff' -sb '#E37673' -sf '#292d3e' -p 'Ybenel:'
+hc keybind $Mod-Shift-Return spawn dmenu_run -fn 'scientifica:size=11' -nb '#212D32' -nf '#bbc5ff' -sb '#E37673' -sf '#292d3e' -p 'DarkOs:'
 hc keybind $Mod-Mod1-s spawn dmenu_run -c -bw 2 -l 10 -g 4 -p 'DarkOs: ' -fn 'scientifica:size=11'
 
 # My dmenu scripts (Alt+Ctrl+Key)
@@ -67,7 +65,7 @@ hc keybind $Mod-Control-Return spawn $myTerm
 hc keybind $Mod-Control-x spawn discord
 hc keybind $Mod-Control-p spawn qjackctl
 hc keybind $Mod-Control-e spawn $myTerm -e torify irssi
-#hc keybind $Mod-b spawn $myBrowser " file:///home/ybenel/Downloads/StartPage/homepage.html"
+hc keybind $Mod-b spawn $myBrowser
 
 
 # Controllers
