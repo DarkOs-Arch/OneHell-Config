@@ -39,6 +39,7 @@ import XMonad.Hooks.SetWMName
 import XMonad.Hooks.WorkspaceHistory
 import XMonad.Hooks.FadeWindows
   -- Layouts
+import XMonad.Layout.Accordion
 import XMonad.Layout.GridVariants (Grid(Grid))
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.Spiral
@@ -236,7 +237,7 @@ treeselectAction a = TS.treeselectAction a
      ]
  , Node (TS.TSNode "+ Internet" "internet and web programs" (return ()))
      [ Node (TS.TSNode "Browser" "Open source web browser" (spawn "firefox")) []
-     , Node (TS.TSNode "Discord" "Chat and video chat platform" (spawn "discord")) []
+     --, Node (TS.TSNode "Discord" "Chat and video chat platform" (spawn "discord")) []
      , Node (TS.TSNode "Telegram" "Telegram Client" (spawn "telegram-desktop")) []
      , Node (TS.TSNode "IRssi" "Great IRC Client" (spawn (myTerminal ++ " -e irssi"))) []
      , Node (TS.TSNode "Qbittorrent" "Bittorrent client" (spawn "qbittorrent")) []
@@ -344,7 +345,6 @@ treeselectAction a = TS.treeselectAction a
          , Node (TS.TSNode "r/Vim" "Subreddit for vim" (spawn (myBrowser ++ "https://www.reddit.com/r/vim/"))) []
          , Node (TS.TSNode "Vi/m StackExchange" "Vi/m related questions" (spawn (myBrowser ++ "https://vi.stackexchange.com/"))) []
          ]
-     , Node (TS.TSNode "My Start Page" "Custom start page for browser" (spawn (myBrowser ++ "file:///home/liveuser/Downloads/StartPage/homepage.html"))) []
      ]
  , Node (TS.TSNode "+ Config Files" "config files that edit often" (return ()))
      [ Node (TS.TSNode "Xmonad" "the window manager you know!" (spawn (myEditor ++ "/home/liveuser/.xmonad/xmonad.hs"))) []
@@ -616,13 +616,13 @@ myScratchPads = [ NS "terminal" spawnTerm findTerm manageTerm
               w = 0.96
               t = 0.5
               l = 0.5
-  spawnDiscord  = "discord"
-  findDiscord   = (className =? "discord")
-  manageDiscord = nonFloating
+  -- spawnDiscord  = "discord"
+  -- findDiscord   = (className =? "discord")
+  -- manageDiscord = nonFloating
 
-  spawnLcord  = "lightcord"
-  findLcord   = (className =? "lightcord")
-  manageLcord = nonFloating
+  -- spawnLcord  = "lightcord"
+  -- findLcord   = (className =? "lightcord")
+  -- manageLcord = nonFloating
 
   spawnQjack  = "qjackctl"
   findQjack   = (className =? "qjackctl")
@@ -647,65 +647,61 @@ mySpacing' i = spacingRaw True (Border i i i i) True (Border i i i i) True
 
 -- Defining a bunch of layouts, many that I don't use.
 tall     = renamed [Replace "tall"]
-         $ windowNavigation
-         $ addTabs shrinkText myTabTheme
-         $ subLayout [] (smartBorders Simplest)
-         $ limitWindows 12
-         $ mySpacing 8
-         $ ResizableTall 1 (3/100) (1/2) []
+           $ smartBorders
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ limitWindows 12
+           $ mySpacing 8
+           $ ResizableTall 1 (3/100) (1/2) []
 magnify  = renamed [Replace "magnify"]
-         $ windowNavigation
-         $ addTabs shrinkText myTabTheme
-         $ subLayout [] (smartBorders Simplest)
-         $ magnifier
-         $ limitWindows 12
-         $ mySpacing 8
-         $ ResizableTall 1 (3/100) (1/2) []
+           $ smartBorders
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ magnifier
+           $ limitWindows 12
+           $ mySpacing 8
+           $ ResizableTall 1 (3/100) (1/2) []
 monocle  = renamed [Replace "monocle"]
-         $ windowNavigation
-         $ addTabs shrinkText myTabTheme
-         $ subLayout [] (smartBorders Simplest)
-         $ limitWindows 20 Full
+           $ smartBorders
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ limitWindows 20 Full
 floats   = renamed [Replace "floats"]
-         $ windowNavigation
-         $ addTabs shrinkText myTabTheme
-         $ subLayout [] (smartBorders Simplest)
-         $ limitWindows 20 simplestFloat
+           $ smartBorders
+           $ limitWindows 20 simplestFloat
 grid     = renamed [Replace "grid"]
-         $ windowNavigation
-         $ addTabs shrinkText myTabTheme
-         $ subLayout [] (smartBorders Simplest)
-         $ limitWindows 12
-         $ mySpacing 8
-         $ mkToggle (single MIRROR)
-         $ Grid (16/10)
+           $ smartBorders
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ limitWindows 12
+           $ mySpacing 8
+           $ mkToggle (single MIRROR)
+           $ Grid (16/10)
 spirals  = renamed [Replace "spirals"]
-         $ windowNavigation
-         $ addTabs shrinkText myTabTheme
-         $ subLayout [] (smartBorders Simplest)
-         $ mySpacing' 8
-         $ spiral (6/7)
+           $ smartBorders
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ mySpacing' 8
+           $ spiral (6/7)
 threeCol = renamed [Replace "threeCol"]
-         $ windowNavigation
-         $ addTabs shrinkText myTabTheme
-         $ subLayout [] (smartBorders Simplest)
-         $ limitWindows 7
-         $ mySpacing' 4
-         $ ThreeCol 1 (3/100) (1/2)
+           $ smartBorders
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ limitWindows 7
+           $ ThreeCol 1 (3/100) (1/2)
 threeRow = renamed [Replace "threeRow"]
-         $ windowNavigation
-         $ addTabs shrinkText myTabTheme
-         $ subLayout [] (smartBorders Simplest)
-         $ limitWindows 7
-         $ mySpacing' 4
-         -- Mirror takes a layout and rotates it by 90 degrees.
-         -- So we are applying Mirror to the ThreeCol layout.
-         $ Mirror
-         $ ThreeCol 1 (3/100) (1/2)
+           $ smartBorders
+           $ addTabs shrinkText myTabTheme
+           $ subLayout [] (smartBorders Simplest)
+           $ limitWindows 7
+           $ Mirror
+           $ ThreeCol 1 (3/100) (1/2)
 tabs     = renamed [Replace "tabs"]
-         -- I cannot add spacing to this layout because it will
-         -- add spacing between window and tabs which looks bad.
-         $ tabbed shrinkText myTabTheme
+           $ tabbed shrinkText myTabTheme
+tallAccordion  = renamed [Replace "tallAccordion"]
+           $ Accordion
+wideAccordion  = renamed [Replace "wideAccordion"]
+           $ Mirror Accordion
 
 myTabTheme = def { fontName            = myFont
                , activeColor         = "#46d9ff"
@@ -729,7 +725,7 @@ myShowWNameTheme = def
 myLayoutHook = avoidStruts . minimize $ mouseResize $ windowArrange $ T.toggleLayouts floats
              $ mkToggle (NBFULL ?? NOBORDERS ?? EOT) myDefaultLayout
            where
-            myDefaultLayout = tall ||| magnify ||| noBorders monocle ||| floats ||| noBorders tabs ||| grid ||| spirals ||| threeCol ||| threeRow
+            myDefaultLayout = tall ||| magnify ||| noBorders monocle ||| floats ||| noBorders tabs ||| grid ||| spirals ||| threeCol ||| threeRow ||| tallAccordion ||| wideAccordion
 
 myWorkspaces = [" B ", " T ", " E ", " G ", " M ", " C "]
 
@@ -753,7 +749,7 @@ myFadeHook = composeAll [className =? "lite" --> transparency 0.6
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
    -- using 'doShift ( myWorkspaces !! 3)' sends program to workspace 4!
-   [ title =? "LibreWolf"     --> doShift ( myWorkspaces !! 0 )
+   [ title =? "Firefox"     --> doShift ( myWorkspaces !! 0 )
    , className =? "mpv"     --> doShift ( myWorkspaces !! 4 )
    , className =? "lite"     --> doShift ( myWorkspaces !! 2 )
    , className =? "vlc"     --> doShift ( myWorkspaces !! 3 )
@@ -761,6 +757,12 @@ myManageHook = composeAll
    , className =? "Gimp"    --> doShift ( myWorkspaces !! 3 )
    , title =? "Oracle VM VirtualBox Manager"     --> doFloat
    , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 3 )
+   , title =? "Oracle VM VirtualBox Manager"     --> doFloat
+   , className =? "file_progress"   --> doFloat
+   , className =? "dialog"          --> doFloat
+   , className =? "download"        --> doFloat
+   , className =? "error"           --> doFloat
+   , className =? "notification"    --> doFloat
    , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
    ] <+> namedScratchpadManageHook myScratchPads
 
@@ -780,7 +782,7 @@ myKeys =
 
   -- Useful programs to have a keybinding for launch
       , ("M-<Return>", spawn myTerminal)
-      , ("M-b", spawn (myBrowser ++ " file:///home/liveuser/Downloads/StartPage/homepage.html"))
+      , ("M-b", spawn myBrowser)
       , ("M-M1-h", spawn (myTerminal ++ " -e htop"))
 
   -- Kill windows
@@ -870,8 +872,8 @@ myKeys =
       , ("M-C-c", namedScratchpadAction myScratchPads "mocp")
       , ("M-C-e", namedScratchpadAction myScratchPads "irssi")
       , ("M-C-a", namedScratchpadAction myScratchPads "Ncp")
-      , ("M-C-x", namedScratchpadAction myScratchPads "discord")
-      , ("M-C-z", namedScratchpadAction myScratchPads "lightcord")
+      -- , ("M-C-x", namedScratchpadAction myScratchPads "discord")
+      -- , ("M-C-z", namedScratchpadAction myScratchPads "lightcord")
       , ("M-C-p", namedScratchpadAction myScratchPads "qjackctl")
       , ("M-C-y", namedScratchpadAction myScratchPads "spotify")
 
