@@ -1,5 +1,5 @@
 -- My Personall Config File
--- Customized by ybenel 
+-- Customized by ybenel
 -- Date: 10/02/2021
 -- {{{  libraries
 local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
@@ -192,7 +192,7 @@ beautiful.init(string.format(gears.filesystem.get_configuration_dir() .. "/theme
 local myawesomemenu = {
     { "hotkeys", function() return false, hotkeys_popup.show_help end },
     { "manual", terminal .. " -e 'man awesome'" },
-    { "edit config", terminal.." vim /home/liveuser/.config/awesome/rc.lua" },
+    { "edit config", terminal.." vim /home/ybenel/.config/awesome/rc.lua" },
     { "arandr", "arandr" },
     { "restart", awesome.restart },
 }
@@ -200,10 +200,11 @@ local myawesomemenu = {
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     {"Browser", "firefox", beautiful.browser_ico},
                                     {"Stremio", "stremio", beautiful.stremio_ico},
-                                    {"Lite", "lite", beautiful.atom_ico},
+				    {"Pcmanfm", "pcmanfm", beautiful.pcman_ico},
+                                    --{"Lite", "lite", beautiful.atom_ico},
                                     {"Gimp","gimp", beautiful.gimp_ico},
-                                    {"Discord", "discord", beautiful.discord_ico},
-                                    {"Telegram", "telegram-desktop", beautiful.telegram_ico},
+                                    --{"Discord", "discord", beautiful.discord_ico},
+                                    --{"Telegram", "telegram-desktop", beautiful.telegram_ico},
                                     { "Terminal", terminal, beautiful.terminal_ico},
                                     { "Log out", function() awesome.quit() end, beautiful.logout_ico},
                                     { "Sleep", "xscreensaver-command -lock", beautiful.sleep_ico},
@@ -220,7 +221,7 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 -- local myawesomemenu = {
 --     { "hotkeys", function() return false, hotkeys_popup.show_help end },
 --     { "manual", terminal .. " -e 'man awesome'" },
---     { "edit config", terminal.." vim /home/liveuser/.config/awesome/rc.lua" },
+--     { "edit config", terminal.." vim /home/ybenel/.config/awesome/rc.lua" },
 --     { "arandr", "arandr" },
 --     { "restart", awesome.restart },
 -- }
@@ -292,13 +293,13 @@ globalkeys = my_table.join(
     {description = "show dmenu", group = "hotkeys"}),
     awful.key({ modkey, altkey }, "s",
     function ()
-        awful.spawn(string.format("dmenu_run -c -bw 2 -l 10 -g 4 -p 'liveuser: ' -fn 'scientifica:size=12'",
+        awful.spawn(string.format("dmenu_run -c -bw 2 -l 10 -g 4 -p 'ybenel: ' -fn 'scientifica:size=12'",
         beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 	end,
     {description = "show dmenu (Small)", group = "hotkeys"}),
     awful.key({ modkey1, modkey  }, "s",
     function()
-	    awful.spawn(string.format("rofi -combi-modi run,drun -show combi -modi combi -show-icons -icon-theme 'Breeze' -display-combi 'liveuser: '",
+	    awful.spawn(string.format("rofi -combi-modi run,drun -show combi -modi combi -show-icons -icon-theme 'Breeze' -display-combi 'ybenel: '",
 	    beautiful.bg_normal, beautiful.fg_normal, beautiful.bg_focus, beautiful.fg_focus))
 	    end,
     {description = "show rofi", group = "hotkeys"}),
@@ -309,7 +310,9 @@ globalkeys = my_table.join(
     awful.key({ altkey, "Control" }, "h", function () awful.util.spawn( "./.dmenu/dmenu-sysmon.sh" ) end,
         {description = "System Monitoring" , group = "Dmenu Scripts" }),
     awful.key({ altkey, "Control"  }, "s", function () awful.util.spawn( "./.dmenu/dmenu-scrot.sh" ) end,
-        {description = "surfraw web search" , group = "Dmenu Scripts" }),
+        {description = "Scrot Screen" , group = "Dmenu Scripts" }),
+    awful.key({ altkey, "Control"  }, "p", function () awful.util.spawn( "passmenu" ) end,
+        {description = "Passmenu" , group = "Dmenu Scripts" }),
 
     -- My applications (Super+Alt+Key)
     awful.key({ altkey, }, "e", function () awful.util.spawn( terminal .. " -e nvim" ) end,
@@ -318,11 +321,13 @@ globalkeys = my_table.join(
         {description = "Open Nvim" , group = "hotkeys" }),
     awful.key({ modkey, altkey  }, "c", function () awful.util.spawn( terminal.." -e mocp" ) end,
         {description = "mocp" , group = "terminal apps" }),
+    awful.key({ modkey, altkey  }, "z", function () awful.util.spawn( terminal.." -e ncmpcpp" ) end,
+        {description = "ncmpcpp" , group = "terminal apps" }),
     awful.key({ modkey, altkey }, "e", function () awful.util.spawn( terminal.." -e irssi" ) end,
         {description = "Irssi" , group = "terminal apps" }),
     awful.key({ modkey, altkey  }, "f", function () awful.util.spawn( terminal.." -e sh ./.config/vifm/scripts/vifmrun" ) end,
         {description = "vifm" , group = "terminal apps" }),
-    awful.key({ modkey, altkey }, "l", function () awful.util.spawn( terminal.." -e lynx --cfg=~/.lynx/lynx.cfg --lss=~/.lynx/lynx.lss -vikeys https://liveuser.cf" ) end,
+    awful.key({ modkey, altkey }, "l", function () awful.util.spawn( terminal.." -e lynx --cfg=~/.lynx/lynx.cfg --lss=~/.lynx/lynx.lss -vikeys https://ybenel.cf" ) end,
         {description = "lynx cli browser" , group = "terminal apps" }),
     awful.key({ modkey, modkey1 }, "e", function () awful.util.spawn( terminal.." -e 'torify irssi' " ) end,
         {description = "Torify Irssi" , group = "terminal apps" }),

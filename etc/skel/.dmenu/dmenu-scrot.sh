@@ -51,6 +51,7 @@ main() {
   "Fullscreen"
   "Active window"
   "Selected region"
+  "Region Delay"
   )
   # Get monitors and their settings for maim
   _displays=$(xrandr --listactivemonitors | grep '+' | awk '{print $4, $3}' | awk -F'[x/+* ]' '{print $1,$2"x"$4"+"$6"+"$7}')
@@ -81,13 +82,17 @@ main() {
       _maim_args="-s"
       _file_type="region"
     ;;
+    'Region Delay')
+      _maim_args="-d 5 -s"
+      _file_type="region"
+    ;;
     *)
       _maim_args="-g ${_display_mode[${target}]}"
       _file_type="${target}"
     ;;
   esac
 
-  _maim_args="${_maim_args} -qd 0.5"
+  _maim_args="${_maim_args} -q"
   local destination=( "File" "Clipboard" "Both" )
   dest=$(printf '%s\n' "${destination[@]}" | ${DMENU} -i -l 20 -p 'Destination:' "$@" ) || exit 1
   case "$dest" in
@@ -98,7 +103,7 @@ main() {
     ;;
     'Clipboard')
       # shellcheck disable=SC2086
-      maim ${_maim_args} | xclip -selection clipboard -t image/png
+      echo maim ${_maim_args} | xclip -selection clipboard -t image/png
       notify-send "Saved Screenshot" "Clipboard"
     ;;
     'Both')

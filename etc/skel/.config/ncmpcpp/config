@@ -56,6 +56,3 @@ ignore_leading_the = "yes"
 mouse_support = "no"
 empty_tag_marker = "-"
 enable_window_title = "yes"
-
-## Volume Control
-volume_change_step = 5
