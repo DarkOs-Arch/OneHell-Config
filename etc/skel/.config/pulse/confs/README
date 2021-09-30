@@ -1,2 +1,3 @@
 This Are Configurations To Make You're Audio Much Better However You Need To Install Few Plugins "pulseaudio-equalizer-ladspa" "libbs2b".
+They are not loaded by default, if you want to use them move them to ~/.config/pulse/
 It's Optional :)

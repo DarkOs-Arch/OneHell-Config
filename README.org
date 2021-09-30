@@ -1,0 +1,6 @@
+#+TITLE: DarkOs One Hell Configurations
+#+AUTHOR: Ybenel
+#+DATE: <2021-09-30 Thu>
+
+* DarkOs One Hell Configurations
+This Repository Includes Necessary Configurations Files For DarkOs One Hell

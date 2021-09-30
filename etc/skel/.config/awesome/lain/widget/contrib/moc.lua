@@ -79,6 +79,7 @@ local function factory(args)
                     local cover  = string.format("find '%s' -maxdepth 1 -type f | egrep -i -m1 '%s'", path, cover_pattern)
                     helpers.async({ shell, "-c", cover }, function(current_icon)
                         common.icon = current_icon:gsub("\n", "")
+                        -- common.icon = "/home/ybenel/Music/Electro/cover.jpg"
                         moc.id = naughty.notify(common).id
                     end)
                 end

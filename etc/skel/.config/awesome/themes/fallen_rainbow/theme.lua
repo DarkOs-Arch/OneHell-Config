@@ -19,7 +19,7 @@ local theme                                     = {}
 theme.default_dir                               = require("awful.util").get_themes_dir() .. "default"
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/fallen_rainbow"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "scientifica 9"
+theme.font                                      = "Ubuntu Mono 9"
 theme.font2                                     = "Mononoki Nerd Font 9"
 theme.fg_normal                                 = "#9E9E9E"
 theme.fg_focus                                  = "#EBEBFF"
@@ -28,7 +28,7 @@ theme.bg_focus                                  = "#242424"
 theme.fg_urgent                                 = "#000000"
 theme.bg_urgent                                 = "#FFFFFF"
 theme.border_width                              = dpi(1)
-theme.border_normal                             = "#242424"
+theme.border_normal                             = "#6959cd"
 theme.border_focus                              = "#EBEBFF"
 theme.taglist_fg_focus                          = "#8DC702"
 theme.taglist_bg_focus                          = "#242424"
@@ -46,18 +46,10 @@ theme.menu_submenu_icon                         = theme.dir .."/icons/submenu.pn
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
 theme.taglist_squares_unsel                     = theme.dir .. "/icons/square_unsel.png"
 theme.useless_gap                               = dpi(6)
-theme.layout_txt_tile                           = "[t]"
-theme.layout_txt_tileleft                       = "[l]"
-theme.layout_txt_tilebottom                     = "[b]"
-theme.layout_txt_tiletop                        = "[tt]"
-theme.layout_txt_fairv                          = "[fv]"
-theme.layout_txt_fairh                          = "[fh]"
-theme.layout_txt_spiral                         = "[s]"
-theme.layout_txt_dwindle                        = "[d]"
-theme.layout_txt_max                            = "[m]"
-theme.layout_txt_fullscreen                     = "[F]"
-theme.layout_txt_magnifier                      = "[M]"
-theme.layout_txt_floating                       = "[*]"
+theme.layout_txt_tile                               = "Tile"
+theme.layout_txt_spiral                             = "Spiral"
+theme.layout_txt_floating                           = "Floats"
+theme.layout_txt_termfair                           = "TermF"
 theme.widget_mem                                = theme.dir .. "/icons/mem.png"
 theme.widget_cpu                                = theme.dir .. "/icons/cpu.png"
 theme.widget_temp                               = theme.dir .. "/icons/temp.png"
@@ -84,6 +76,7 @@ theme.titlebar_maximized_button_focus_active    = theme.default_dir.."/titlebar/
 
 -- Menu Icons
 theme.browser_ico = theme.dir .. "/icons/browser.png"
+theme.pcman_ico = theme.dir .. "/icons/pcmanfm.png"
 theme.stremio_ico = theme.dir .. "/icons/stremio.png"
 theme.gimp_ico = theme.dir .. "/icons/gimp.png"
 theme.atom_ico = theme.dir .. "/icons/atom.png"
@@ -100,12 +93,55 @@ theme.hibernate_ico = theme.dir .. "/icons/hibernate.png"
 theme.ghost_on = theme.dir .. "icons/ghost.svg"
 theme.terex_off = theme.dir .. "icons/offside.svg"
 
--- lain related
-theme.layout_txt_cascade                        = "[cascade]"
-theme.layout_txt_cascadetile                    = "[cascadetile]"
-theme.layout_txt_centerwork                     = "[centerwork]"
-theme.layout_txt_termfair                       = "[termfair]"
-theme.layout_txt_centerfair                     = "[centerfair]"
+-- bling Related
+theme.flash_focus_step = 0.01 
+theme.flash_focus_start_opacity = 0.8
+
+-- Tabbed
+theme.mstab_bar_height = dpi(60)
+theme.mstab_bar_padding = dpi(0)
+theme.mstab_border_radius = dpi(6)
+theme.tabbar_style = "boxes"
+theme.tabbar_bg_focus = theme.bg_focus
+theme.tabbar_bg_normal = theme.bg_normal
+theme.tabbar_fg_focus = theme.fg_focus
+theme.tabbar_fg_normal = theme.fg_normal
+theme.tabbar_position = "top"
+theme.tabbar_AA_radius = 0
+theme.tabbar_size = 30
+theme.mstab_bar_ontop = true
+theme.tabbar_font = "scientifica 10"
+
+-- Bling Layouts
+theme.layout_txt_leavedright                        = "LRight"
+theme.layout_txt_leavedleft                         = "LLeft"
+theme.layout_txt_leavedbottom                       = "LBott"
+theme.layout_txt_leavedtop                          = "LUp"
+theme.layout_txt_mstab                              = "Tabs"
+
+-- notification
+theme.notification_font          = theme.font
+theme.notification_bg            = "#1A2026"
+theme.notification_fg            = theme.fg_focus
+theme.notification_border_width  = theme.border_width
+theme.notification_border_color  = "#526170"
+theme.notification_position      = "top_right"
+theme.notification_shape         = function(cr, width, height) gears.shape.rounded_rect(cr, width, height, 10) end
+theme.notification_margin        = 5
+theme.notification_max_width     = 700
+theme.notification_max_height    = 500
+theme.notification_icon_size     = 50
+
+-- Icons
+theme.temp_icon = "/usr/share/icons/WhiteSur-purple-dark/status/symbolic/sensors-temperature-symbolic.svg"
+
+-- Platerctl 
+theme.playerctl_backend = "playerctl_cli"
+theme.playerctl_ignore = {"firefox","chromium"}
+theme.playerctl_player = {"%any"}
+theme.playerctl_update_on_activity = true
+theme.playerctl_position_update_interval = 10
+
 
 local markup = lain.util.markup
 local white  = theme.fg_focus
@@ -163,7 +199,7 @@ theme.mpd = lain.widget.mpd({
             artist = ""
             title  = ""
         end
-        widget:set_markup(markup.font(theme.font, markup(gray, artist) .. markup(white, title)))
+        widget:set_markup(markup.font(theme.font, markup("#ff006a", artist) .. markup("#00ffff", title)))
     end
 })
 
@@ -272,7 +308,7 @@ theme.spot = lain.widget.contrib.spot({
 -- end)))
 -- Weather
 theme.weather = lain.widget.weather({
-    city_id = 2643743, -- placeholder (London)
+    city_id = 2537406, -- placeholder (Settat)
     notification_preset = { font = theme.font, fg = white }
 })
 
@@ -325,13 +361,14 @@ function theme.at_screen_connect(s)
     gears.wallpaper.maximized(wallpaper, s, true)
 
     -- Tags
-    awful.tag(awful.util.tagnames, s, awful.layout.layouts)
+    awful.tag(awful.util.tagnames ,s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
 
     -- Textual layoutbox
-    s.mytxtlayoutbox = wibox.widget.textbox(theme["layout_txt_" .. awful.layout.getname(awful.layout.get(s))])
+    s.mytxtlayoutbox = wibox.widget.textbox(theme["layout_txt_" .. awful.layout.getname(awful.layout.get(s))]) -- Text Layout Box
+    --s.mylayoutbox = awful.widget.layoutbox(s) -- layout box (icons)
     awful.tag.attached_connect_signal(s, "property::selected", function () update_txt_layoutbox(s) end)
     awful.tag.attached_connect_signal(s, "property::layout", function () update_txt_layoutbox(s) end)
     s.mytxtlayoutbox:buttons(my_table.join(
@@ -357,15 +394,16 @@ function theme.at_screen_connect(s)
             layout = wibox.layout.fixed.horizontal,
             first,
             s.mytaglist,
+            s.mytxtlayoutbox,
+            --s.mylayoutbox,
             spr,
-            -- s.mytxtlayoutbox,
-            --spr,
             s.mypromptbox,
             spr,
-            love_mc,
-            theme.spot,
-            theme.moc,
-            prev_next_mc,
+	    theme.mpd,
+            --love_mc,
+            --theme.spot,
+            --theme.moc,
+            --prev_next_mc,
         },
         spr,
         -- s.mytasklist, -- Middle widget

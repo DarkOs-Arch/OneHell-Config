@@ -1,5 +1,4 @@
--- Configured added / removed by liveuser (github.com/m1ndo)
--- Modification Date: 06/14/2021
+-- Modification Date: 09/30/2021
 -- Base
 import XMonad
 import System.IO (hPutStrLn)
@@ -160,7 +159,6 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myStartupHook :: X ()
 myStartupHook = do
-        --spawn "/home/liveuser/.bin/ybl/resolution"
         spawnOnce "nitrogen --restore &"
         spawnOnce "picom &"
         spawnOnce "unclutter -root &"
@@ -170,12 +168,11 @@ myStartupHook = do
         -- spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 10 --tint 0x282C34 --height 22 --iconspacing 0 --margin 682 &" -- Enable When Using Secondary Xmobar config
         spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 10 --tint 0x090D12 --height 22 --iconspacing 0 --margin 476 &"
         spawnOnce "/usr/lib/polkit-kde-authentication-agent-1 &"
-        spawnOnce "xfce4-power-manager &"
+        -- spawnOnce "xfce4-power-manager &"
         spawnOnce "numlockx on &"
         -- spawnOnce "/usr/bin/emacs --daemon &"
         spawnOnce "xscreensaver -no-splash &"
-        -- spawnOnce "caffeine &"
-        -- spawn "/home/liveuser/.bin/ybl/jack_start"
+        spawnOnce "caffeine &"
         setWMName "LG3D"
 
 myColorizer :: Window -> Bool -> X (String, String)
@@ -214,7 +211,7 @@ myAppGrid = [ ("Xterm", "xterm")
                --, ("Lite", "lite")
                , ("Gimp", "gimp")
                --, ("Discord", "discord")
-               --, ("Spotify", "spot_load")
+               --, ("Spotify", "spotify")
                , ("LibreOffice Writer", "lowriter")
                , ("PCManFM", "pcmanfm")
                ]
@@ -655,8 +652,8 @@ myKeys =
       , ("M-u b", spawn "mpc prev")
       , ("M-u m", spawn "mpc stop")
   -- App Shortcuts
-      , ("M-C-s", spawn "rofi -combi-modi run,drun -show combi -modi combi -show-icons -icon-theme 'Breeze' -display-combi 'liveuser: '")
-      , ("M-M1-s", spawn "dmenu_run -c -bw 2 -l 10 -g 4 -p 'liveuser: ' -fn 'scientifica:size=12'")
+      , ("M1-<Return>", spawn "rofi -show drun -show-icons")
+      , ("M-M1-s", spawn "dmenu_run -c -b -l 10 -g 4 -p 'Darkos: ' -fn 'scientifica:size=12'")
       , ("M-M1-e", spawn (myTerminal ++ " -e irssi"))
       , ("M-M1-c", spawn (myTerminal ++ " -e /usr/bin/mocp"))
       , ("M-e", spawn myEmacs)

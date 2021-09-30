@@ -15,7 +15,7 @@ Config { font    = "xft:Scientifica:pixelsize=12:antialias=true:hinting=true"
        , pickBroadest = False
        , persistent = True
        , hideOnStart = False
-       , iconRoot = "/home/liveuser/.xmonad/xpm/"
+       , iconRoot = "/home/liveuser/.config/xmobar/xpm/"
        , allDesktops = True
        , overrideRedirect = True
        , commands = [

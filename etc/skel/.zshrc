@@ -1,4 +1,4 @@
-#export ZSH=/home/ybenel/.oh-my-zsh
+#export ZSH=$HOME/.oh-my-zsh
 #ZSH_THEME="miloshadzic"
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
 # CASE_SENSITIVE="true"
@@ -123,9 +123,6 @@ alias pg='ping'   # Extra
 
 # Overwrite .Xresources To take effect of the new settings
 alias xd='xrdb ~/.Xresources'
-
-# Add A Specific Env File For My laptop
-alias scv='LIBGL_ALWAYS_SOFTWARE=1'
 
 # adding flags
 alias cp="cp -i"                          # confirm before overwriting something

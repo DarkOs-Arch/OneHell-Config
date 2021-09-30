@@ -1,7 +1,7 @@
 --[[
 
      Licensed under GNU General Public License v3
-      (C) 2020, ybenel <http://github.com/m1ndo>
+      (C) 2020, ybenel <http://github.com/r2dr0dn>
 
 --]]
 
