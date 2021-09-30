@@ -96,16 +96,16 @@ require("scripts.play_ctl")
 require("scripts.ctl_pop")
 
 -- Warn If Temperature
-awesome.connect_signal("evil::temp", function(temp)
-    if temp > 65 then
-        naughty.notify {title="[!] CPU is getting hot",
-                        text="Currently at " .. tostring(temp) .. "°C",icon=beautiful.temp_icon,fg="#b3ff1a"}
-    end
-    if temp > 79 then
-        naughty.notify {title="[!] CPU is on fire",
-                        text="Currently at " .. tostring(temp) .. "°C",icon=beautiful.temp_icon,bg="#ff0000"}
-    end
-end)
+--awesome.connect_signal("evil::temp", function(temp)
+--    if temp > 65 then
+--        naughty.notify {title="[!] CPU is getting hot",
+--                        text="Currently at " .. tostring(temp) .. "°C",icon=beautiful.temp_icon,fg="#b3ff1a"}
+--    end
+--    if temp > 79 then
+--        naughty.notify {title="[!] CPU is on fire",
+--                        text="Currently at " .. tostring(temp) .. "°C",icon=beautiful.temp_icon,bg="#ff0000"}
+--    end
+--end)
 
 -- modkey or mod4 = super key
 local modkey       = "Mod4"
@@ -209,8 +209,8 @@ beautiful.menu_font = "scientifica 9"
 beautiful.menu_border_color = "#002133"
 beautiful.menu_border_width = 2
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    {"Browser", "chromium", beautiful.browser_ico},
-                                    {"Stremio", "stremio", beautiful.stremio_ico},
+                                    {"Browser", "firefox", beautiful.browser_ico},
+                                    {"Vlc", "vlc", beautiful.stremio_ico},
 				                    {"Pcmanfm", "pcmanfm", beautiful.pcman_ico},
                                     {"Lite", "lite", beautiful.atom_ico},
                                     {"Gimp","gimp", beautiful.gimp_ico},
