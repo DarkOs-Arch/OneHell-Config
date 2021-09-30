@@ -1,0 +1,10 @@
+[submodule "etc/skel/.config/awesome/lib/rubato"]
+        path = etc/skel/.config/awesome/lib/rubato
+        url = https://github.com/andOrlando/rubato
+[submodule "etc/skel/.config/awesome/lib/bling"]
+        path = etc/skel/.config/awesome/lib/bling
+        url = https://github.com/blingcorp/bling
+[submodule "etc/skel.config/awesome/awesome-leaved"]
+        path = etc/skel/.config/awesome/awesome-leaved
+        url = https://github.com/michaelbeaumont/awesome-leaved
+
