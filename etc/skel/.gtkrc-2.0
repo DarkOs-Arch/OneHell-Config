@@ -1,8 +1,7 @@
 # DO NOT EDIT! This file will be overwritten by LXAppearance.
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
-include "/home/ybenel/.gtkrc-2.0.mine"
-gtk-theme-name="gtk-master"
+gtk-theme-name="Dracula"
 gtk-icon-theme-name="Dracula"
 gtk-font-name="SF Pro Display,  10"
 gtk-cursor-theme-name="macOSBigSur"
@@ -17,4 +16,3 @@ gtk-xft-antialias=1
 gtk-xft-hinting=1
 gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
-gtk-modules="colorreload-gtk-module:window-decorations-gtk-module"
