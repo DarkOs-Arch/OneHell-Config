@@ -70,7 +70,7 @@ drag_from_buttons=false
 intensity=1.00
 saturation=1.00
 scrollable_menu=true
-shadowless_popup=false
+shadowless_popup=true
 
 [GeneralColors]
 window.color=#302f2e
