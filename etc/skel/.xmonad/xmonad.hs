@@ -132,11 +132,10 @@ myTerminal :: String
 myTerminal = "xterm"   -- Sets default terminal to the favorite (xterm)
 
 myBrowser :: String
-myBrowser = "librewolf "               -- Moved To A better Browser .
+myBrowser = "firefox "               -- Moved To A better Browser .
 
 myEditor :: String
 myEditor = "nvim "  -- Sets nvim as editor for tree select
--- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor for tree select
 
 -- Setup A Emacs Client
 myEmacs :: String
@@ -165,8 +164,7 @@ myStartupHook = do
         spawnOnce "sxhkd &"
         spawnOnce "nm-applet &"
         spawnOnce "volumeicon &"
-        -- spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 10 --tint 0x282C34 --height 22 --iconspacing 0 --margin 682 &" -- Enable When Using Secondary Xmobar config
-        spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 10 --tint 0x090D12 --height 22 --iconspacing 0 --margin 395 &"
+        spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 10 --tint 0x282C34 --height 22 --iconspacing 0 --margin 660 --distancefrom top --distance 11 &"
         spawnOnce "/usr/lib/polkit-kde-authentication-agent-1 &"
         -- spawnOnce "xfce4-power-manager &"
         spawnOnce "numlockx on &"

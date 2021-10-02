@@ -3,7 +3,7 @@
 
 gtk-theme-name="Dracula"
 gtk-icon-theme-name="Dracula"
-gtk-font-name="Caskaydia Cove 10"
+gtk-font-name="SF Pro Display 10"
 gtk-cursor-theme-name="macOSBigSur"
 gtk-cursor-theme-size=24
 gtk-toolbar-style=GTK_TOOLBAR_BOTH_HORIZ
