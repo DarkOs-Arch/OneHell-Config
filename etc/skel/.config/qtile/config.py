@@ -15,7 +15,7 @@ keys = [
 	EzKey("M-S-r", lazy.restart(),desc="Qtile Restart"),
 	EzKey("M-S-q", lazy.shutdown(),desc="Qtile Quit"),
 	EzKey("M-<Return>", lazy.spawn(myTerm),desc="Spawn Terminal"),
-	EzKey("M-S-<Return>",lazy.spawn("dmenu_run -fn 'scientifica:size=11' -nb '#212D32' -nf     '#bbc5ff' -sb '#E37673' -sf '#292d3e' -p 'DarkOs:'"),desc="Spawn Dmenu"),
+	EzKey("M-S-<Return>",lazy.spawn("dmenu_run -fn 'scientifica:size=11' -nb '#212D32' -nf     '#bbc5ff' -sb '#E37673' -sf '#292d3e' -p 'Ybenel:'"),desc="Spawn Dmenu"),
 	EzKey("M-<space>", lazy.window.toggle_fullscreen(),desc="Toggle Fullscreen"),
 	EzKey("M-<Tab>", lazy.next_layout(),desc="Toggle Next Layout"),
 	EzKey("M-l", lazy.layout.shrink(),lazy.layout.decrease_nmaster(),desc="Shrink Size"),
@@ -41,7 +41,7 @@ keys = [
 	EzKey("M-e",lazy.spawn("emacsclient -c -a emacs"),desc="Spawn Emacs"),
 	EzKey("M-A-z", lazy.spawn(myTerm + " -e ncmpcpp")),
 	EzKey("A-<Return>", lazy.spawn("rofi -show drun -show-icons")),
-	EzKey("M-A-s", lazy.spawn("dmenu_run -c -b -l 10 -g 4 -p 'DarkOs: ' -fn 'scientifica:size=12'")),
+	EzKey("M-A-s", lazy.spawn("dmenu_run -c -b -l 10 -g 4 -p 'ybenel: ' -fn 'scientifica:size=12'")),
 	EzKey("M-A-e", lazy.spawn(myTerm + " -e irssi")),
 	EzKey("M-A-c", lazy.spawn(myTerm + " -e mocp")),
 	EzKey("A-C-s", lazy.spawn("./.dmenu/dmenu-scrot.sh")),
@@ -66,21 +66,6 @@ keys = [
     EzKey("A-l",lazy.spawn("playerctl play-pause")),
 ]
 
-
-# group_names = [("", {'layout': 'monadtall'}),
-#                ("", {'layout': 'monadtall'}),
-#                ("", {'layout': 'monadtall'}),
-#                ("", {'layout': 'monadtall'}),
-#                ("", {'layout': 'monadtall'}),
-#                ("", {'layout': 'monadtall'})]
-
-# groups = [Group(name, **kwargs) for name, kwargs in group_names]
-
-# for i, (name, kwargs) in enumerate(group_names, 1):
-# 	keys.append(EzKey("M-"+str(i),lazy.group[name].toscreen()))
-# 	keys.append(EzKey("M-S-"+str(i),lazy.window.togroup(name)))
-
-
 workspaces = [
     {"name": "", "key": "1", "matches": [Match(wm_class='Chromium'),Match(wm_class='Firefox'),Match(wm_class='Chrome')]},
     {"name": "הּ", "key": "2", "matches": [Match(wm_class='pcmanfm')]},
@@ -96,9 +81,6 @@ for workspace in workspaces:
     groups.append(Group(workspace["name"], matches=matches, layout="monadtall"))
     keys.append(EzKey("M-"+str(workspace['key']),lazy.group[workspace["name"]].toscreen()))
     keys.append(EzKey("M-S-"+str(workspace['key']),lazy.window.togroup(workspace["name"])))
-    # keys.append(Key([mod], workspace["key"], lazy.group[workspace["name"]].toscreen()))
-    # keys.append(Key([mod, "shift"], workspace["key"], lazy.window.togroup(workspace["name"])))
-
 
 layout_theme = {"border_width": 2,
                 "margin": 8,
