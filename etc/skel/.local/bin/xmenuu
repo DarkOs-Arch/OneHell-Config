@@ -1,16 +1,16 @@
 #!/bin/sh
 
 cat <<EOF | xmenu | sh &
-IMG:/home/liveuser/.local/icons/browser.png	Browser	firefox
-IMG:/home/liveuser/.local/icons/gimp.png	Gimp	gimp
-IMG:/home/liveuser/.local/icons/pcmanfm.png	PCManFm	pcmanfm
-IMG:/home/liveuser/.local/icons/xterm.png	Terminal	xterm
+IMG:$HOME/.local/icons/browser.png	Browser	firefox
+IMG:$HOME/.local/icons/gimp.png	Gimp	gimp
+IMG:$HOME/.local/icons/pcmanfm.png	PCManFm	pcmanfm
+IMG:$HOME/.local/icons/xterm.png	Terminal	xterm
 
-IMG:/home/liveuser/.local/icons/sleep.png	Sleep	xscreensaver-command -lock
-IMG:/home/liveuser/.local/icons/hibernate.png	Hibernate	systemctl -i hibernate
-IMG:/home/liveuser/.local/icons/suspend.png	Suspend	systemctl -i suspend
-IMG:/home/liveuser/.local/icons/restart.png	Restart	systemctl -i reboot
-IMG:/home/liveuser/.local/icons/shutdown.png	Shutdown	shutdown -P now	
+IMG:$HOME/.local/icons/sleep.png	Sleep	xscreensaver-command -lock
+IMG:$HOME/.local/icons/hibernate.png	Hibernate	systemctl -i hibernate
+IMG:$HOME/.local/icons/suspend.png	Suspend	systemctl -i suspend
+IMG:$HOME/.local/icons/restart.png	Restart	systemctl -i reboot
+IMG:$HOME/.local/icons/shutdown.png	Shutdown	shutdown -P now	
 EOF
 
 # Applications

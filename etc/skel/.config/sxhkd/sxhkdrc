@@ -1,2 +1,2 @@
 ~button3
-  xqp 0 && /home/liveuser/.local/bin/xmenuu 
+  xqp 0 && $HOME/.local/bin/xmenuu 
