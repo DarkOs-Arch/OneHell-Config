@@ -1,8 +1,8 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.00 for ybenel on Mon Sep 20 23:28:25 2021.
+# Written by xscreensaver-settings 6.01 for ybenel on Mon Nov  8 11:36:13 2021.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	0:03:00
+timeout:	0:09:00
 cycle:		0:03:00
 lock:		True
 lockTimeout:	0:10:00
@@ -15,7 +15,7 @@ splashDuration:	0:00:05
 demoCommand:	xscreensaver-demo
 nice:		10
 fade:		True
-unfade:		True
+unfade:		False
 fadeSeconds:	0:00:03
 ignoreUninstalledPrograms:False
 font:		*-medium-r-*-140-*-m-*
@@ -30,7 +30,7 @@ chooseRandomImages: False
 imageDirectory:	
 
 mode:		one
-selected:	60
+selected:	105
 
 textMode:	literal
 textLiteral:	Either U Died A Villain Or See Urself Become A Hero.

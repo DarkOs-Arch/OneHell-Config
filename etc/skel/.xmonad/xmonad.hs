@@ -147,8 +147,8 @@ myBrowser :: String
 myBrowser = "firefox "               -- Moved To A better Browser .
 
 myEditor :: String
-myEditor = "emacsclient -c -a emacs"  -- Sets nvim as editor for tree select
--- myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor for tree select
+--myEditor = "emacsclient -c -a emacs"  -- Sets nvim as editor for tree select
+myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor for tree select
 
 -- Setup A Emacs Client
 myEmacs :: String
@@ -182,8 +182,9 @@ myStartupHook = do
         -- spawnOnce "xfce4-power-manager &"
         spawnOnce "numlockx on &"
         -- spawnOnce "/usr/bin/emacs --daemon &"
-        spawnOnce "xscreensaver -no-splash &"
+        spawnOnce "xscreensaver -no-splash &" -- Disabled for installation issues
         spawnOnce "caffeine &"
+        spawnOnce "xdg-autostart-launcher --user &"
         setWMName "LG3D"
 
 myColorizer :: Window -> Bool -> X (String, String)
