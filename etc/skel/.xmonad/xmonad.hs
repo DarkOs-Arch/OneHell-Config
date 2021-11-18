@@ -1,5 +1,5 @@
 -- Configured added / removed by ybenel (github.com/m1ndo)
--- Modification Date: 10/24/2021
+-- Modification Date: 11/10/2021
 -- Base
 import XMonad
 import System.IO (hPutStrLn)
@@ -148,7 +148,7 @@ myBrowser = "firefox "               -- Moved To A better Browser .
 
 myEditor :: String
 --myEditor = "emacsclient -c -a emacs"  -- Sets nvim as editor for tree select
-myEditor = myTerminal ++ " -e vim "    -- Sets vim as editor for tree select
+myEditor = myTerminal ++ " -e nvim "    -- Sets vim as editor for tree select
 
 -- Setup A Emacs Client
 myEmacs :: String
@@ -185,6 +185,7 @@ myStartupHook = do
         spawnOnce "xscreensaver -no-splash &" -- Disabled for installation issues
         spawnOnce "caffeine &"
         spawnOnce "xdg-autostart-launcher --user &"
+        spawnOnce "xsetroot -cursor_name left_ptr"
         setWMName "LG3D"
 
 myColorizer :: Window -> Bool -> X (String, String)
@@ -674,8 +675,9 @@ myKeys =
       , ("M-M1-s", spawn "dmenu_run -c -b -l 10 -g 4 -p 'Darkos: ' -fn 'scientifica:size=12'")
       , ("M-M1-e", spawn (myTerminal ++ " -e irssi"))
       , ("M-M1-c", spawn (myTerminal ++ " -e /usr/bin/mocp"))
-      , ("M-e", spawn myEmacs)
+      , ("M-e", spawn myEditor) -- replace myEditor With myEmacs If You Use Emacs
       , ("M1-C-s", spawn "./.dmenu/dmenu-scrot.sh")
+      , ("M1-C-b", spawn "./.dmenu/dmenu-setbg.sh")
       , ("M1-C-h", spawn "./.dmenu/dmenu-sysmon.sh")
       , ("M1-C-e", spawn "./.dmenu/dmenu-edit-configs.sh")
       , ("M-M1-z", spawn (myTerminal ++ " -e ncmpcpp"))

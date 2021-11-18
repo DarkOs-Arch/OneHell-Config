@@ -313,6 +313,8 @@ globalkeys = my_table.join(
         {description = "System Monitoring" , group = "Dmenu Scripts" }),
     awful.key({ altkey, "Control" }, "s", function () awful.util.spawn( "./.dmenu/dmenu-scrot.sh" ) end,
         {description = "Scrot Screen" , group = "Dmenu Scripts" }),
+    awful.key({ altkey, "Control" }, "b", function () awful.util.spawn( "./.dmenu/dmenu-setbg.sh" ) end,
+        {description = "Change Wallpaper" , group = "Dmenu Scripts" }),
     awful.key({ altkey, "Control" }, "p", function () awful.util.spawn( "passmenu" ) end,
         {description = "Passmenu" , group = "Dmenu Scripts" }),
 

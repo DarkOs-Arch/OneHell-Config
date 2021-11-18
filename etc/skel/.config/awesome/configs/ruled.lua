@@ -1,5 +1,5 @@
 local awful = require('awful')
-local ruled = require('ruled')
+-- local ruled = require('ruled')
 local beautiful = require('beautiful')
 
 awful.rules.rules = {

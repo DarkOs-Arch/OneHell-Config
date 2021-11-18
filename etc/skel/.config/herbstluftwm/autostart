@@ -36,6 +36,7 @@ hc keybind Mod1-Return spawn rofi -show drun -show-icons
 hc keybind Mod1-Control-e spawn ./.dmenu/dmenu-edit-configs.sh
 hc keybind Mod1-Control-h spawn ./.dmenu/dmenu-sysmon.sh
 hc keybind Mod1-Control-s spawn ./.dmenu/dmenu-scrot.sh
+hc keybind Mod1-Control-b spawn ./.dmenu/dmenu-setbg.sh
 hc keybind Mod1-Control-p spawn passmenu
 
 # My applications (Super+Alt+Key)

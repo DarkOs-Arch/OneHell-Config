@@ -45,6 +45,7 @@ keys = [
 	EzKey("M-A-e", lazy.spawn(myTerm + " -e irssi")),
 	EzKey("M-A-c", lazy.spawn(myTerm + " -e mocp")),
 	EzKey("A-C-s", lazy.spawn("./.dmenu/dmenu-scrot.sh")),
+	EzKey("A-C-b", lazy.spawn("./.dmenu/dmenu-setbg.sh")),
 	EzKey("A-C-h", lazy.spawn("./.dmenu/dmenu-sysmon.sh")),
 	EzKey("A-C-e", lazy.spawn("./.dmenu/dmenu-edit-configs.sh")),
 	EzKey("A-C-p", lazy.spawn("passmenu")),
