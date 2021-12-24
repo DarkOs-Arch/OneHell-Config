@@ -1,5 +1,5 @@
+@theme "./themes/spotlight.rasi"
 configuration {
-	theme: "./themes/spotlight.rasi";
 	modi: "drun,run";
 	location: 2;
 	fixed-num-lines: false;

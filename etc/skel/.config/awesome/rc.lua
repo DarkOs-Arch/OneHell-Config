@@ -304,7 +304,7 @@ globalkeys = my_table.join(
                 )
             end
         end,
-        {description = "Restore all Minimized windows in current tag", group = "client"}),
+        {description = "Restore all Minimized windows in current tag", group = "Client"}),
 
     -- My dmenu scripts (Alt+Ctrl+Key)
     awful.key({ altkey, "Control" }, "e", function () awful.util.spawn( "./.dmenu/dmenu-edit-configs.sh" ) end,
