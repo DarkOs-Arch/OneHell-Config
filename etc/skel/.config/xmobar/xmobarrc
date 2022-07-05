@@ -6,7 +6,8 @@ Config { font    = "xft:Scientifica:pixelsize=11:antialias=true:hinting=true"
        , bgColor = "#282c34"
        , fgColor = "#ff6c6b"
        --, position = Static { xpos = 6, ypos = 9, width = 1354, height = 24 } -- 1366x768 Display
-       , position = Static { xpos = 6, ypos = 9, width = 1908, height = 24 } -- 1920x1080 Display
+       -- , position = Static { xpos = 6, ypos = 9, width = 1908, height = 24 } -- 1920x1080 Display
+       , position = TopSize C 100 24
        , lowerOnStart = True
        , hideOnStart = False
        , allDesktops = True

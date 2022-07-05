@@ -164,7 +164,7 @@ myFocusColor :: String
 myFocusColor  = "#46d9ff"  -- Border color of focused windows
 
 trayerCommand :: String
-trayerCommand = "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 10 --tint 0x282C34 --height 22 --iconspacing 0 --margin 479 --distance 9 &"
+trayerCommand = "trayer --edge top --align right --widthtype request --padding 2 --SetDockType true --SetPartialStrut true --expand true --monitor 0 --transparent true --alpha 10 --tint 0x282C34 --height 22 --iconspacing 0 --margin 479 --distance 1 &"
 
 xmobarToggleCommand :: String
 xmobarToggleCommand = "dbus-send --session --dest=org.Xmobar.Control --type=method_call '/org/Xmobar/Control' org.Xmobar.Control.SendSignal \"string:Toggle 0\""
