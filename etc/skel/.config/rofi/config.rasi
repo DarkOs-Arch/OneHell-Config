@@ -1,4 +1,3 @@
-@theme "./themes/spotlight.rasi"
 configuration {
 	modi: "drun,run";
 	location: 2;
@@ -10,3 +9,4 @@ configuration {
 	display-drun: "";
     display-emoji: "";
 }
+@theme "./themes/spotlight.rasi"

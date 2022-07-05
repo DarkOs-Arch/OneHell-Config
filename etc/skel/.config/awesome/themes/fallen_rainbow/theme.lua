@@ -1,6 +1,6 @@
 --[[
-    Fallen_rainbow Awesome WM Theme 1.0
-    (C) Ybenel <github.com/r2dr0dn/fallen_rainbow>
+    Fallen_rainbow Awesome WM Theme 2.0
+    (C) 2020 - 2022 Ybenel <github.com/m1ndo/fallen_rainbow>
     inspired from github.com/lcpz (awesome-copycats 'rainbow')
 --]]
 
@@ -26,9 +26,9 @@ theme.bg_normal                                 = "#282C34"
 theme.bg_focus                                  = "#242424"
 theme.fg_urgent                                 = "#000000"
 theme.bg_urgent                                 = "#FFFFFF"
-theme.border_width                              = dpi(1)
+theme.border_width                              = dpi(2)
 theme.border_normal                             = "#6959cd"
-theme.border_focus                              = "#EBEBFF"
+theme.border_focus                              = "#00ff7f"
 theme.taglist_fg_focus                          = "#8DC702"
 theme.taglist_bg_focus                          = "#242424"
 theme.menu_height                               = dpi(16)
@@ -212,24 +212,24 @@ theme.mail = lain.widget.imap({
 --]]
 
 -- MPD
-theme.mpd = lain.widget.mpd({
-    settings = function()
-        mpd_notification_preset.fg = white
-        artist = mpd_now.artist .. " "
-        title  = mpd_now.title  .. " "
-        if mpd_now.state == "pause" then
-            artist = "Mpd "
-            title  = "Paused "
-        elseif mpd_now.state == "stop" then
-            artist = "Mpd "
-            title  = "Stopped"
-        elseif mpd_now.state == "N/A" then
-            artist = ""
-            title  = ""
-        end
-        widget:set_markup(markup.font(theme.font, markup("#ff006a", artist) .. markup("#00ffff", title)))
-    end
-})
+-- theme.mpd = lain.widget.mpd({
+--     settings = function()
+--         mpd_notification_preset.fg = white
+--         artist = mpd_now.artist .. " "
+--         title  = mpd_now.title  .. " "
+--         if mpd_now.state == "pause" then
+--             artist = "Mpd "
+--             title  = "Paused "
+--         elseif mpd_now.state == "stop" then
+--             artist = "Mpd "
+--             title  = "Stopped"
+--         elseif mpd_now.state == "N/A" then
+--             artist = ""
+--             title  = ""
+--         end
+--         widget:set_markup(markup.font(theme.font, markup("#ff006a", artist) .. markup("#00ffff", title)))
+--     end
+-- })
 
 -- /home fs
 --[[ commented because it needs Gio/Glib >= 2.54
@@ -313,7 +313,7 @@ local volumewidget = wibox.container.margin(volumebg, dpi(7), dpi(7), dpi(5), dp
 --   theme.moc.update()
 -- end)))
 
-theme.spot = lain.widget.contrib.spot({
+theme.spot = lain.widget.contrib.mspot({
   settings = function()
     if spot_now.state == "Playing" then
       artist = spot_now.artist .. " "
@@ -325,9 +325,10 @@ theme.spot = lain.widget.contrib.spot({
       artist = ""
       title  = ""
     end
-    widget:set_markup(markup.font(theme.font, markup(gray, artist) .. markup(white, title)))
+    widget:set_markup(markup.font(theme.font, markup("#00bfff", artist) .. markup("#deb887", title)))
   end
 })
+
 
 -- prev_next_mc:buttons(my_table.join(awful.button({}, 3,
 -- function ()
@@ -381,6 +382,21 @@ local function update_txt_layoutbox(s)
                               theme["layout_txt_" .. awful.layout.getname(awful.layout.get(s))])) or ""
     s.mytxtlayoutbox:set_markup_silently(txt_l)
 end
+
+
+function theme.second_screen(s)
+    local wallpaper = theme.wallpaper
+    if type(wallpaper) == "function" then
+        wallpaper = wallpaper(s)
+    end
+    gears.wallpaper.maximized(wallpaper, s, true)
+
+    -- Tags
+    awful.tag(awful.util.tagnames ,s, awful.layout.layouts[1])
+
+    s.quake = lain.util.quake({ app = awful.util.terminal })
+end
+
 
 function theme.at_screen_connect(s)
     -- Quake application
@@ -513,7 +529,7 @@ function theme.at_screen_connect(s)
         {
             layout = wibox.layout.fixed.horizontal,
             s.mypromptbox,
-            theme.mpd,
+            -- theme.mpd,
             theme.spot,
         },
         mytextclock,

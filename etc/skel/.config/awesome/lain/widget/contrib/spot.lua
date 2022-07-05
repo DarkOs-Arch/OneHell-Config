@@ -1,7 +1,7 @@
 --[[
 
      Licensed under GNU General Public License v3
-      (C) 2020, ybenel <http://github.com/r2dr0dn>
+      (C) 2020, ybenel <http://github.com/m1ndo>
 
 --]]
 
@@ -15,8 +15,8 @@ local wibox        = require("wibox")
 local os           = os
 local string       = string
 
--- Spotify Music Client
--- lain.widget.contrib.moc
+-- Spotify Mpd Music Client
+-- lain.widget.contrib.spot
 
 local function factory(args)
     local spot          = { widget = wibox.widget.textbox() }

@@ -15,8 +15,8 @@ Xcursor.size: 24
 
 XTerm.termName: xterm-256color
 XTerm*renderFont: true
-XTerm*faceName: Caskaydia Cove 
-xterm*faceSize: 8
+XTerm*faceName: Cascadia Code 
+xterm*faceSize: 8 
 ! VT Font Menu: Unreadable
 xterm*faceSize1: 8
 ! VT font menu: Tiny

@@ -24,6 +24,7 @@ export EDITOR='nvim'
 
 
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 setopt GLOB_DOTS
 
@@ -111,7 +112,7 @@ alias ins='yay -S'
 alias up='yay -Sy'
 alias upd='yay -Syu'
 alias rms='yay -R'
-alias pcsrc='pacman -Ss'
+alias pcsrc='/usr/bin/pacman -Ss'
 alias pcin='sudo pacman -S'
 alias pcr='sudo pacman -R'
 alias sy='sudo pacman -Sy'

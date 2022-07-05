@@ -1,5 +1,5 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-settings 6.01 for ybenel on Mon Nov  8 11:36:13 2021.
+# Written by xscreensaver-settings 6.02 for ybenel on Tue Jan 18 15:40:09 2022.
 # https://www.jwz.org/xscreensaver/
 
 timeout:	0:09:00
@@ -30,7 +30,7 @@ chooseRandomImages: False
 imageDirectory:	
 
 mode:		one
-selected:	105
+selected:	92
 
 textMode:	literal
 textLiteral:	Either U Died A Villain Or See Urself Become A Hero.
@@ -283,6 +283,8 @@ programs:								      \
 - GL: 				covid19 -root				    \n\
   GL: 				headroom -root				    \n\
 - GL: 				sphereeversion -root			    \n\
+				binaryhorizon -root			    \n\
+				marbling -root				    \n\
 
 
 pointerHysteresis:  10
